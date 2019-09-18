@@ -12,11 +12,9 @@ public class UIManager : MonoBehaviour
 
     public void DecreaseHearts(int _gameID, int _health)
     {
-        Debug.Log("heart decreased");
         if (_gameID == 1)
         {
             playerHearts[_health].enabled = false;
-            Debug.Log("heart decreased");
         }
         if (_gameID == 2)
         {

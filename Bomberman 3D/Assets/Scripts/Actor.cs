@@ -11,11 +11,6 @@ public class Actor : MonoBehaviour, IDamagable
 
     public UIManager uiManager;
 
-    private void Awake()
-    {
-        //uiManager = FindObjectOfType<UIManager>();
-    }
-
     // Update is called once per frame
     private void Update()
     {
@@ -29,6 +24,7 @@ public class Actor : MonoBehaviour, IDamagable
     public void Damage()
     {
         health -= 1;
+
         //Player zn gameID is altijd 1
         Debug.Log("ID : " + gameID + " &  health : " + health);
         uiManager.DecreaseHearts(gameID, health);
@@ -47,6 +43,10 @@ public class Actor : MonoBehaviour, IDamagable
     {
         bombDummy.SetActive(true);
         bombDummy.transform.position = transform.position;
-        //Instantiate(bomb, transform.position, Quaternion.identity);
+    }
+
+    private float Timer(float _timer)
+    {
+        return _timer -= Time.deltaTime;
     }
 }

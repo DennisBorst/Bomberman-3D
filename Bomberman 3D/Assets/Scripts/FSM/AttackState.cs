@@ -12,7 +12,6 @@ public class AttackState : State
     public override void OnEnter(IUser _iUser, ITarget _iTarget)
     {
         base.OnEnter(_iUser, _iTarget);
-        
     }
 
     public override void OnExit()
@@ -22,7 +21,11 @@ public class AttackState : State
 
     public override void OnUpdate()
     {
-        Debug.Log("Attacking");
+        PlaceBomb();
+    }
+
+    private void PlaceBomb()
+    {
         if (_iUser.bomb.bombDeployCheck)
         {
             _iUser.bomb.Deployed();

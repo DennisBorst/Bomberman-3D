@@ -9,8 +9,6 @@ public interface IUser
     NavMeshAgent navMeshAgent { get; }
 
     float rayCastLength { get; }
-    RaycastHit[] hit { get; }
-    Vector3[] directions { get; }
     Vector3 forward { get; }
 
     Bomb bomb { get; }

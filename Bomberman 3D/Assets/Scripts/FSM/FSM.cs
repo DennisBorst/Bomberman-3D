@@ -14,6 +14,7 @@ public class FSM
     {
         owner = _owner;
         target = _target;
+
         foreach(State state in statesList)
         {
             state.Init(this);
@@ -43,7 +44,6 @@ public class FSM
         if (currentState != null)
         {
             currentState.OnUpdate();
-            Debug.Log(currentState);
         }
     }
 }

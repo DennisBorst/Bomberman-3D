@@ -5,6 +5,7 @@ using UnityEngine;
 public class HideState : State
 {
     private float maxHideTime = 5f;
+    private float moveSpeed = 3.5f;
     private float hideTimer;
 
     public HideState(StateEnum id)
@@ -15,23 +16,29 @@ public class HideState : State
     public override void OnEnter(IUser _iUser, ITarget _iTarget)
     {
         base.OnEnter(_iUser, _iTarget);
+        _iUser.navMeshAgent.isStopped = true;
         hideTimer = maxHideTime;
     }
 
     public override void OnExit()
     {
         Debug.Log("Exit Time");
+        _iUser.navMeshAgent.isStopped = false;
     }
 
     public override void OnUpdate()
     {
-        Debug.Log("Hiding");
+        Hiding();
+    }
+
+    private void Hiding()
+    {
         hideTimer -= Time.deltaTime;
-        _iUser.transform.Translate(Vector3.back * Time.deltaTime * 5f);
-        Debug.DrawRay(_iUser.transform.position, _iUser.directions[2], Color.white);
+
+        _iUser.transform.Translate(Vector3.back * Time.deltaTime * moveSpeed);
+
         if (hideTimer <= 0)
         {
-            Debug.DrawRay(_iUser.transform.position, _iUser.directions[3], Color.yellow);
             fsm.SwitchState(StateEnum.Walk);
         }
     }

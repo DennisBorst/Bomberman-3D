@@ -6,12 +6,15 @@ using UnityEngine.AI;
 
 public class WalkState : State
 {
+    private int maxDistanceToPlayer = 10;
+    private int maxDistanceToLocation = 5;
+
     private Vector3 destinationPoint;
     private bool needDestination = true;
-    private int _xPos;
-    private int _zPos;
-    private int distance;
     private int distanceToPlayer;
+    private int distanceToLocation;
+
+    private RaycastHit hit;
 
     public WalkState(StateEnum id)
     {
@@ -30,14 +33,16 @@ public class WalkState : State
 
     public override void OnUpdate()
     {
-        //Debug.Log("Walking");
-        distance = Convert.ToInt32((Vector3.Distance(_iUser.navMeshAgent.destination, destinationPoint)));
+        DirectionManager();
+        CheckRayCast();
+    }
+
+    private void DirectionManager()
+    {
+        distanceToLocation = Convert.ToInt32((Vector3.Distance(_iUser.navMeshAgent.destination, destinationPoint)));
         distanceToPlayer = Convert.ToInt32((Vector3.Distance(_iUser.navMeshAgent.destination, _iTarget.player.transform.position)));
-        //Debug.Log("distance = " + distance);
-        //Debug.Log("distance to player = " + distanceToPlayer);
-        //Debug.DrawRay(_iUser.transform.position, _iUser.transform.forward, Color.red);
-        
-        if(distanceToPlayer <= 10)
+
+        if (distanceToPlayer <= maxDistanceToPlayer)
         {
             _iUser.navMeshAgent.destination = _iTarget.player.transform.position;
         }
@@ -46,7 +51,7 @@ public class WalkState : State
             _iUser.navMeshAgent.destination = destinationPoint;
         }
 
-        if (_iUser.navMeshAgent.destination == destinationPoint || distance <= 3)
+        if (_iUser.navMeshAgent.destination == destinationPoint || distanceToLocation <= maxDistanceToLocation)
         {
             needDestination = true;
         }
@@ -56,15 +61,18 @@ public class WalkState : State
             SetDestination();
             needDestination = false;
         }
+    }
 
-        if (Physics.Raycast(_iUser.transform.position, _iUser.transform.forward, out _iUser.hit[3], _iUser.rayCastLength))
+    private void CheckRayCast()
+    {
+        if (Physics.Raycast(_iUser.transform.position, _iUser.transform.forward, out hit, _iUser.rayCastLength))
         {
-            if (_iUser.hit[3].collider.gameObject.tag == "Player")
+            if (hit.collider.gameObject.tag == "Player")
             {
                 Debug.DrawRay(_iUser.transform.position, _iUser.transform.forward, Color.green);
                 fsm.SwitchState(StateEnum.Attack);
             }
-            else if (_iUser.hit[3].collider.gameObject.tag == "Wall")
+            else if (hit.collider.gameObject.tag == "Wall")
             {
                 Debug.DrawRay(_iUser.transform.position, _iUser.transform.forward, Color.green);
                 fsm.SwitchState(StateEnum.Attack);
@@ -75,9 +83,8 @@ public class WalkState : State
     private void SetDestination()
     {
         System.Random random = new System.Random();
-        _xPos = random.Next(-13, 13);
-        _zPos = random.Next(-13, 13);
-        destinationPoint = new Vector3(_xPos, 0f, _zPos);
-        //Debug.Log(destinationPoint);
+        int _xPos = random.Next(-13, 13);
+        int _zPos = random.Next(-13, 13);
+        destinationPoint = new Vector3(_xPos, 1.15f, _zPos);
     }
 }
