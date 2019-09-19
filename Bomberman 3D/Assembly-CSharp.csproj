@@ -62,6 +62,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
+    <Compile Include="Assets\FSMExample\Scripts\FSM\AState.cs" />
+    <Compile Include="Assets\FSMExample\Scripts\FSM\FSM.cs" />
+    <Compile Include="Assets\FSMExample\Scripts\FSM\Interfaces.cs" />
+    <Compile Include="Assets\FSMExample\Scripts\FSM\StatePool.cs" />
+    <Compile Include="Assets\FSMExample\Scripts\Player.cs" />
+    <Compile Include="Assets\FSMExample\Scripts\States\IdleStatee.cs" />
+    <Compile Include="Assets\FSMExample\Scripts\States\WalkStatee.cs" />
     <Compile Include="Assets\Scripts\Actor.cs" />
     <Compile Include="Assets\Scripts\ActorManager.cs" />
     <Compile Include="Assets\Scripts\Bomb.cs" />
@@ -70,6 +78,7 @@
     <Compile Include="Assets\Scripts\FSM\AttackState.cs" />
     <Compile Include="Assets\Scripts\FSM\FSM.cs" />
     <Compile Include="Assets\Scripts\FSM\HideState.cs" />
+    <Compile Include="Assets\Scripts\FSM\IdleState.cs" />
     <Compile Include="Assets\Scripts\FSM\ITarget.cs" />
     <Compile Include="Assets\Scripts\FSM\IUser.cs" />
     <Compile Include="Assets\Scripts\FSM\State.cs" />
@@ -77,6 +86,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\IDamagable.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\PreviousEnemy.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -111,21 +121,29 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\VoorbeeldFMS.cs" />
+    <Compile Include="Assets\VoorbeeldFSM2.cs" />
+    <Compile Include="Assets\WallManager.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\EffectExamples\Misc Effects\Shaders\Dissolve.shader" />
+    <None Include="Assets\EffectExamples\Misc Effects\Shaders\FireFly.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\EffectExamples\Misc Effects\Prefabs\Readme_Dissolve_Respawn_.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
+    <None Include="Assets\EffectExamples\Misc Effects\Shaders\Respawn.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\EffectExamples\Magic Effects\Shaders\Ice.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
@@ -133,31 +151,31 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/HKU bestanden/Jaar 2/Kernmodule 1 (Git)/GitProject/Bomberman 3D/Bomberman 3D/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/HKU bestanden/Jaar 2/Git/Git Bomberman/Bomberman 3D/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/HKU bestanden/Jaar 2/Kernmodule 1 (Git)/GitProject/Bomberman 3D/Bomberman 3D/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/HKU bestanden/Jaar 2/Git/Git Bomberman/Bomberman 3D/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/HKU bestanden/Jaar 2/Kernmodule 1 (Git)/GitProject/Bomberman 3D/Bomberman 3D/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/HKU bestanden/Jaar 2/Git/Git Bomberman/Bomberman 3D/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/HKU bestanden/Jaar 2/Kernmodule 1 (Git)/GitProject/Bomberman 3D/Bomberman 3D/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/HKU bestanden/Jaar 2/Git/Git Bomberman/Bomberman 3D/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/HKU bestanden/Jaar 2/Kernmodule 1 (Git)/GitProject/Bomberman 3D/Bomberman 3D/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/HKU bestanden/Jaar 2/Git/Git Bomberman/Bomberman 3D/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/HKU bestanden/Jaar 2/Kernmodule 1 (Git)/GitProject/Bomberman 3D/Bomberman 3D/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/HKU bestanden/Jaar 2/Git/Git Bomberman/Bomberman 3D/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/HKU bestanden/Jaar 2/Kernmodule 1 (Git)/GitProject/Bomberman 3D/Bomberman 3D/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/HKU bestanden/Jaar 2/Git/Git Bomberman/Bomberman 3D/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/HKU bestanden/Jaar 2/Kernmodule 1 (Git)/GitProject/Bomberman 3D/Bomberman 3D/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/HKU bestanden/Jaar 2/Git/Git Bomberman/Bomberman 3D/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/HKU bestanden/Jaar 2/Kernmodule 1 (Git)/GitProject/Bomberman 3D/Bomberman 3D/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/HKU bestanden/Jaar 2/Git/Git Bomberman/Bomberman 3D/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
