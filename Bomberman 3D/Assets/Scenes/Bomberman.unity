@@ -9744,7 +9744,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ff7f7c55546e14c80fb3fa7815f85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountPlayersAlive: 0
+  cursor:
+    XSensitivity: 2
+    YSensitivity: 2
+    clampVerticalRotation: 1
+    MinimumX: -90
+    MaximumX: 90
+    smooth: 0
+    smoothTime: 5
+    lockCursor: 1
   actors:
   - {fileID: 1819345866}
   - {fileID: 644890000}
@@ -12761,7 +12769,7 @@ PrefabInstance:
     - target: {fileID: 1990452178387237630, guid: b250f4cf0a5d8874580a3d5d2cf5cc9d,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1990452178387237630, guid: b250f4cf0a5d8874580a3d5d2cf5cc9d,
         type: 3}
@@ -14769,10 +14777,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18
@@ -14840,14 +14844,6 @@ PrefabInstance:
     - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: m_JumpSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
@@ -30739,11 +30735,6 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1990452178387237630, guid: b250f4cf0a5d8874580a3d5d2cf5cc9d,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b250f4cf0a5d8874580a3d5d2cf5cc9d, type: 3}
 --- !u!4 &1976056397 stripped
@@ -33751,11 +33742,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.z
       value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1990452178387237630, guid: b250f4cf0a5d8874580a3d5d2cf5cc9d,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b250f4cf0a5d8874580a3d5d2cf5cc9d, type: 3}

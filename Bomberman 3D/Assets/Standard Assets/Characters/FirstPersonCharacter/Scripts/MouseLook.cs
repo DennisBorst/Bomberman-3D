@@ -21,6 +21,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Quaternion m_CameraTargetRot;
         private bool m_cursorIsLocked = true;
 
+        public void CursorIsVisible()
+        {
+            m_cursorIsLocked = false;
+            Cursor.visible = true;
+        }
+
         public void Init(Transform character, Transform camera)
         {
             m_CharacterTargetRot = character.localRotation;

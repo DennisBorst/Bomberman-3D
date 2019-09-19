@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
 
 public class ActorManager : MonoBehaviour
 {
-    private int amountPlayersAlive;
+    public UnityStandardAssets.Characters.FirstPerson.MouseLook cursor;
 
     [SerializeField] private List<Actor> actors;
+    private int amountPlayersAlive;
 
     private static ActorManager _instance;
 
@@ -36,7 +36,7 @@ public class ActorManager : MonoBehaviour
         amountPlayersAlive--;
         if(amountPlayersAlive == 1)
         {
-            //UnityStandardAssets.Characters.FirstPerson.MouseLook
+            cursor.CursorIsVisible();
             Cursor.lockState = CursorLockMode.None;
             GameManager.Instance.WinGame();
         }
